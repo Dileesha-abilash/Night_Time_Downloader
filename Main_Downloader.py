@@ -45,7 +45,7 @@ def button_Download():
 
     Current_hour = int(current_date.strftime("%H"))
     Current_min = int(current_date.strftime("%M"))
-    
+
     Remain_time = (Schedule_hour-Current_hour)*60 + \
         (Schedule_min - Current_min)  # Remain time is in minutes
     # new = Toplevel()
@@ -65,10 +65,11 @@ def Download_store_path():
     global Download_store_path_display
     Download_store_path_display = filedialog.askdirectory()
 
+
 def button_Link():
     global Link_store_path_display
     Link_store_path_display = filedialog.askopenfilename()
-        
+
 
 # print(Remain_time)
 # x = Download_store_path_display
@@ -96,7 +97,7 @@ button3 = customtkinter.CTkButton(
 
 button = customtkinter.CTkButton(
     master=app, text="Start Scheduling (Downloading)", command=button_Download).pack()
-    
+
 
 customtkinter.CTkLabel
 
@@ -105,11 +106,10 @@ app.mainloop()
 
 print(Download_store_path_display)
 
-wget.download("",f"{Download_store_path_display}")
+# wget.download(f"{Link_store_path_display}",f"{Download_store_path_display}")
 
 
-
-## after Death of first window
+# after Death of first window
 
 
 open_file = open(f"{Link_store_path_display}")
@@ -117,15 +117,28 @@ read_file = open_file.read()
 
 Links_one_by_one = read_file.split()
 
-
+# print(Links_one_by_one)
 
 
 new = customtkinter.CTk()
 
 new.title("Schedule Downloader")
 new.iconbitmap('D:\Python_projects\photo1.ico')
-for i in Link_store_path_display:
-    wget.download(f"{Link_store_path_display[i]}",f"{Download_store_path_display}")
+# for i in len(Link_store_path_display):
+#     print(f"{Link_store_path_display[i]}",f"{Download_store_path_display}")
+
+
+def Sleep_and_downlaod():
+    print(Remain_time)
+    for i, j in enumerate(Links_one_by_one):
+        # print(i)
+        wget.download(f"{Links_one_by_one[i]}",
+                      f"{Download_store_path_display}")
+
+
+print("i waiting")
+
+new.after(Remain_time*60000, Sleep_and_downlaod)
 
 new.geometry("720x512")
 
@@ -140,13 +153,9 @@ new.mainloop()
 # print(Schedule_full_date,Schedule_hour)
 
 
+# need to do
 
-
-
-## need to do
-
-    # Sleep  eka use karaddi yata code okkoma wada karan nathi hinda new Conform download Window ekak
-    # hadanna onee
-    #Ui eka haddanna one
-    # Exe convert Wen na Documentation eka kiyawanna onee
-
+# Sleep  eka use karaddi yata code okkoma wada karan nathi hinda new Conform download Window ekak
+# hadanna onee
+# Ui eka haddanna one
+# Exe convert Wen na Documentation eka kiyawanna onee
