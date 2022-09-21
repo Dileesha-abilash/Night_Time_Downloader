@@ -33,7 +33,7 @@ https://user-images.githubusercontent.com/94125793/191332612-ae0fd148-1d9a-4685-
 </ol>
 <p>&nbsp; &nbsp; <strong>How to Create Link File</strong></p>
 <ul>
-<li>Paste Link one after Another by hitting enter at end of the link&nbsp;</li>
+<li>Paste Link one after Another by hitting enter at end of the link each link&nbsp;</li>
 <li>Unlimited Links Supported</li>
 </ul>
 <h2 dir="auto">🤓 Concept</h2>
